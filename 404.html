@@ -1,6 +1,19 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+  <!-- Clean URL Enforcer: Hide .html and /index from address bar immediately -->
+  <script>
+    (function() {
+      try {
+        var p = window.location.pathname;
+        if (p.endsWith('.html')) {
+          var clean = p.replace(/\.html$/, '');
+          if (clean.endsWith('/index')) clean = clean.replace(/\/index$/, '');
+          window.history.replaceState(null, '', (clean || '/') + window.location.search + window.location.hash);
+        }
+      } catch (e) {}
+    })();
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>404 — Halaman Tidak Ditemukan | HQC High Quality Construction</title>
@@ -367,7 +380,7 @@
           <span>Menuju Beranda HQC</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <a href="/portofolio" class="hqc-btn hqc-btn--outline">
+        <a href="/portofolio/" class="hqc-btn hqc-btn--outline">
           <span>Lihat Portofolio</span>
         </a>
         <a href="https://wa.me/6282144267826" class="hqc-btn hqc-btn--sand" target="_blank" rel="noopener noreferrer">

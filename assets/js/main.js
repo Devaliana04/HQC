@@ -1,10 +1,29 @@
-/**
- * HQC — HIGH QUALITY CONSTRUCTION
- * Main Vanilla JS Controller
- * Version: 1.0 — October 2026
- */
+// Clean URL Enforcer - immediately hide .html and /index from address bar on all environments
+(function() {
+  try {
+    var p = window.location.pathname;
+    if (p.endsWith('.html')) {
+      var clean = p.replace(/\.html$/, '');
+      if (clean.endsWith('/index')) clean = clean.replace(/\/index$/, '');
+      window.history.replaceState(null, '', (clean || '/') + window.location.search + window.location.hash);
+    }
+  } catch (e) {}
+})();
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Universal clean link handler: ensure clicking any link never shows .html
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a');
+    if (!a || !a.href || a.target === '_blank') return;
+    try {
+      const u = new URL(a.href, window.location.origin);
+      if (u.origin === window.location.origin && u.pathname.endsWith('.html')) {
+        const cleanPath = u.pathname.replace(/\.html$/, '');
+        a.href = cleanPath + (cleanPath.endsWith('/') ? '' : '/') + u.search + u.hash;
+      }
+    } catch (err) {}
+  });
+
   // 1. Navbar Scroll Detection
   const navbar = document.querySelector('.hqc-navbar');
   if (navbar && !navbar.classList.contains('hqc-navbar-solid')) {
