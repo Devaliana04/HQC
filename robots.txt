@@ -1,0 +1,25 @@
+User-agent: *
+Allow: /
+Allow: /favicon.ico
+Allow: /favicon.png
+Allow: /favicon-512x512.png
+Allow: /apple-touch-icon.png
+Allow: /site.webmanifest
+Allow: /assets/brand/
+Allow: /assets/images/
+Allow: /public/
+
+User-agent: Googlebot
+Allow: /
+Allow: /assets/
+
+User-agent: Googlebot-Image
+Allow: /favicon.ico
+Allow: /favicon.png
+Allow: /favicon-512x512.png
+Allow: /apple-touch-icon.png
+Allow: /assets/brand/
+Allow: /assets/images/
+Allow: /public/
+
+Sitemap: https://hqconstruction.id/sitemap.xml
