@@ -1,25 +1,31 @@
-// Clean URL Enforcer - immediately hide .html and /index from address bar on all environments
+// Clean URL Enforcer - immediately hide .html from browser address bar
 (function() {
   try {
     var p = window.location.pathname;
     if (p.endsWith('.html')) {
       var clean = p.replace(/\.html$/, '');
-      if (clean.endsWith('/index')) clean = clean.replace(/\/index$/, '');
       window.history.replaceState(null, '', (clean || '/') + window.location.search + window.location.hash);
     }
   } catch (e) {}
 })();
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Universal clean link handler: ensure clicking any link never shows .html
+  // Live Server & Localhost Clean URL Bridge: prevents 'Cannot GET /page' on simple local dev servers
   document.addEventListener('click', (e) => {
     const a = e.target.closest('a');
     if (!a || !a.href || a.target === '_blank') return;
     try {
       const u = new URL(a.href, window.location.origin);
-      if (u.origin === window.location.origin && u.pathname.endsWith('.html')) {
-        const cleanPath = u.pathname.replace(/\.html$/, '');
-        a.href = cleanPath + (cleanPath.endsWith('/') ? '' : '/') + u.search + u.hash;
+      if (u.origin === window.location.origin && !u.hash) {
+        const isLocal = window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost';
+        if (isLocal) {
+          let path = u.pathname;
+          if (path !== '/' && !path.endsWith('.html')) {
+            e.preventDefault();
+            const cleanBase = path.replace(/\/$/, '');
+            window.location.href = cleanBase + '.html' + u.search;
+          }
+        }
       }
     } catch (err) {}
   });
