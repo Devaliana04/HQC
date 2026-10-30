@@ -17,7 +17,7 @@
       ]
     },
     {
-      "source": "/(favicon.*|apple-touch-icon.*|site\\.webmanifest|logo-512\\.png)",
+      "source": "/(favicon.*|apple-touch-icon.*|site\\.webmanifest|logo-512\\..*)",
       "headers": [
         { "key": "Cache-Control", "value": "public, max-age=86400, must-revalidate" },
         { "key": "Access-Control-Allow-Origin", "value": "*" }

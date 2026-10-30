@@ -14,6 +14,7 @@ def audit_website():
         'produk.html',
         'portofolio.html',
         'blog.html',
+        'blog/blog.html',
         'blog/tahapan-pembangunan-vila.html',
         'blog/instalasi-pipa-sebelum-pengecoran.html',
         'blog/cara-memilih-kontraktor-vila.html',
@@ -64,7 +65,24 @@ def audit_website():
         print(f"[FAIL] Multiple sitemap.xml found: {all_sitemaps}")
         total_issues += 1
 
-    # 4. Deep check into each page
+    # 4. Check that ZERO .png or .jpg files exist in the project
+    print("\n--- Verifying Image Formats (WebP Only, Zero PNG/JPG) ---")
+    forbidden_images = []
+    for dirpath, dirnames, filenames in os.walk(root):
+        if any(skip in dirpath for skip in ['scratch', '.agents', '.git', 'node_modules']):
+            continue
+        for f in filenames:
+            ext = os.path.splitext(f)[1].lower()
+            if ext in ['.png', '.jpg', '.jpeg']:
+                rel = os.path.relpath(os.path.join(dirpath, f), root)
+                forbidden_images.append(rel)
+    if forbidden_images:
+        print(f"[FAIL] Found {len(forbidden_images)} non-WebP image files: {forbidden_images}")
+        total_issues += len(forbidden_images)
+    else:
+        print("[PASS] ZERO PNG or JPG files in project. All images are 100% WebP (+ favicon.ico fallback)!")
+
+    # 5. Deep check into each page
     print("\n--- Verifying Content, Schemas, Keywords & Links ---")
     for hf in html_files:
         p = os.path.join(root, hf.replace('/', os.sep))
@@ -118,8 +136,13 @@ def audit_website():
         if bad_hrefs:
             print(f"[FAIL] {hf}: Found .html in href: {bad_hrefs}")
             total_issues += 1
+
+        # Check for any .png references in HTML
+        if '.png' in c.lower():
+            print(f"[FAIL] {hf}: Still contains .png references")
+            total_issues += 1
             
-    # 5. Check all images in assets/ are < 100KB
+    # 6. Check all images in assets/ are < 100KB
     print("\n--- Verifying Asset Sizes (< 100KB) ---")
     assets_dir = os.path.join(root, 'assets')
     overweight_images = []
@@ -147,6 +170,7 @@ def audit_website():
     else:
         print(f"AUDIT RESULT: {total_issues} issues detected.")
     print("==================================================")
+    return total_issues
 
 if __name__ == '__main__':
-    audit_website()
+    exit(audit_website())

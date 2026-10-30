@@ -106,26 +106,25 @@ def validate_all():
             else:
                 print(f"  [OK] WebSite schema connected to Organization @id")
 
-    # 3. Check public/ folder contents
-    print("\n--- Validating public/ directory ---")
-    public_dir = os.path.join(root, 'public')
-    expected_public_files = [
+    # 3. Check root brand assets
+    print("\n--- Validating Brand & Discovery Files ---")
+    expected_root_files = [
         'favicon.ico',
-        'favicon.png',
-        'favicon-512x512.png',
-        'apple-touch-icon.png',
+        'favicon.webp',
+        'favicon-512x512.webp',
+        'apple-touch-icon.webp',
         'site.webmanifest',
         'robots.txt',
         'sitemap.xml'
     ]
-    for ef in expected_public_files:
-        p = os.path.join(public_dir, ef)
+    for ef in expected_root_files:
+        p = os.path.join(root, ef)
         if not os.path.exists(p):
-            print(f"ERROR: Missing file in public/: {ef}")
+            print(f"ERROR: Missing file in root: {ef}")
             total_issues += 1
         else:
             size_kb = os.path.getsize(p) / 1024.0
-            print(f"  [OK] public/{ef} ({size_kb:.2f} KB) exists and is under 100KB: {size_kb < 100}")
+            print(f"  [OK] {ef} ({size_kb:.2f} KB) exists and is under 100KB: {size_kb < 100}")
 
     if total_issues == 0:
         print("\n=======================================================")

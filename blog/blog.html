@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <!-- Clean URL Enforcer: Hide .html and /index from address bar immediately -->
+  <script>
+    (function() {
+      try {
+        var p = window.location.pathname;
+        if (p.endsWith('.html')) {
+          var clean = p.replace(/\.html$/, '');
+          if (clean.endsWith('/index')) clean = clean.replace(/\/index$/, '');
+          window.history.replaceState(null, '', (clean || '/') + window.location.search + window.location.hash);
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catatan Konstruksi HQC — Wawasan & Edukasi Proyek Vila Hotel</title>
+  <meta name="description" content="Kumpulan artikel dan panduan teknis konstruksi: tahapan bangun vila, koordinasi pipa sebelum cor, serta panduan memilih kontraktor terpercaya.">
+  <meta name="keywords" content="jasa konstruksi, kontraktor bangunan, kontraktor konstruksi, perusahaan konstruksi indonesia, jasa kontraktor profesional, kontraktor gedung, kontraktor sipil, kontraktor arsitektur, general contractor indonesia, jasa pemborong bangunan, kontraktor bangunan komersial, jasa rancang bangun, design and build contractor, kontraktor proyek terpercaya, manajemen konstruksi, jasa pembangunan vila, kontraktor vila, kontraktor vila mewah, pembangunan vila eksklusif, jasa bangun vila modern, konstruksi vila tropis, kontraktor private villa, pembangunan luxury villa, jasa renovasi vila, arsitektur vila kontemporer, pembangunan resort, kontraktor resort mewah, konstruksi eco resort, boutique resort contractor, villa development contractor, jasa pembangunan hotel, kontraktor hotel, konstruksi hotel berbintang, kontraktor hotel butik, pembangunan guest house, renovasi hotel, hospitality construction contractor, hotel building contractor, fit out hotel, konstruksi akomodasi pariwisata, proyek perhotelan, standard hotel bintang konstruksi, fasilitas perhotelan, interior hotel contractor, fasad hotel modern, pekerjaan struktur bangunan, struktur beton bertulang, pembesian pondasi, instalasi tulangan besi, pengecoran beton, pondasi bore pile, pondasi cakar ayam, footing foundation, balok dan kolom struktur, sloof gantung, retaining wall beton, dinding penahan tanah, uji kuat tekan beton, perhitungan beban struktur, rebar installation, instalasi utilitas bangunan, pekerjaan mep, mechanical electrical plumbing, instalasi pipa air bersih, jalur pipa air kotor, instalasi pipa sebelum cor, pemipaan ppr air panas, pemipaan pvc berkualitas, instalasi pipa pex, sistem sanitasi vila, pemasangan bio septic tank, instalasi stp sewage treatment, jalur kabel listrik conduit, panel listrik lvmdb, grounding sistem penangkal petir, pekerjaan dinding bata ringan, dinding hebel presisi, plesteran dan acian halus, perancah scaffolding, pekerjaan rangka fasad, fasad arsitektural lengkung, dinding ekspos terkurasi, secondary skin fasad, insulasi dinding bangunan, pemasangan partisi kedap suara, aplikasi waterproofing membrane, waterproofing polyurethane, waterproofing dak beton, pemasangan kusen aluminium, pintu kaca sliding panoramik, finishing arsitektural premium, lantai semen ekspos, pemasangan batu alam travertin, lantai terrazzo cor, finishing marmer mewah, decking kayu ulin kolam, konstruksi kolam renang infinity, pembangunan swimming pool vila, waterproofing kolam renang, sistem sirkulasi kolam overflow, lanskap tropis vila, hardscape dan softscape, lighting arsitektur eksterior, plafon gypsum drop ceiling, pengecatan dinding tahan cuaca, dokumentasi progres konstruksi, pengawasan berkala konstruksi, rab pembangunan vila, rencana anggaran biaya bangunan, gambar kerja arsitektur ded, detail engineering design, time schedule proyek kurva s, laporan mingguan proyek konstruksi, inspeksi mutu bahan bangunan, kualitas konstruksi terverifikasi, quality control konstruksi, spesifikasi teknis bangunan, konsultasi proyek konstruksi, hqc high quality construction, blueprint to built">
+  <meta name="author" content="HQC — High Quality Construction">
+  <link rel="canonical" href="https://hqconstruction.id/blog">
+  <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'>
+
+  <!-- Open Graph / Facebook & WhatsApp -->
+  <meta property="og:type" content="blog">
+  <meta property="og:site_name" content="HQC High Quality Construction">
+  <meta property="og:title" content="Catatan Konstruksi HQC — Wawasan & Edukasi Proyek Vila Hotel">
+  <meta property="og:description" content="Kumpulan artikel dan panduan teknis konstruksi: tahapan bangun vila, koordinasi pipa sebelum cor, serta panduan memilih kontraktor terpercaya.">
+  <meta property="og:url" content="https://hqconstruction.id/blog">
+  <meta property="og:image" content="https://hqconstruction.id/assets/images/og/hqc-og-home.webp">
+  <meta property="og:image:secure_url" content="https://hqconstruction.id/assets/images/og/hqc-og-home.webp">
+  <meta property="og:image:type" content="image/webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="HQC High Quality Construction — Dokumentasi Progres Konstruksi">
+  <meta property="og:locale" content="id_ID">
+
+  <!-- Twitter / X Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@hqconstruction">
+  <meta name="twitter:title" content="Catatan Konstruksi HQC — Wawasan & Edukasi Proyek Vila Hotel">
+  <meta name="twitter:description" content="Kumpulan artikel dan panduan teknis konstruksi: tahapan bangun vila, koordinasi pipa sebelum cor, serta panduan memilih kontraktor terpercaya.">
+  <meta name="twitter:image" content="https://hqconstruction.id/assets/images/og/hqc-og-home.webp">
+
+  <!-- Favicon & Brand Icons for Google Search & Browsers -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/webp" sizes="16x16" href="/favicon-16x16.webp">
+  <link rel="icon" type="image/webp" sizes="32x32" href="/favicon-32x32.webp">
+  <link rel="icon" type="image/webp" sizes="512x512" href="/favicon.webp">
+  <link rel="icon" type="image/webp" sizes="512x512" href="/favicon-512x512.webp">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.webp">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#10263F">
+  <meta name="msapplication-TileColor" content="#10263F">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <!-- Structured Data JSON-LD -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "Organization",
+        "GeneralContractor",
+        "HomeAndConstructionBusiness"
+      ],
+      "@id": "https://hqconstruction.id/#organization",
+      "name": "HQC — High Quality Construction",
+      "alternateName": [
+        "HQC",
+        "High Quality Construction",
+        "HQC Construction"
+      ],
+      "url": "https://hqconstruction.id/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://hqconstruction.id/#logo",
+        "url": "https://hqconstruction.id/favicon.webp",
+        "contentUrl": "https://hqconstruction.id/favicon.webp",
+        "caption": "Logo HQC High Quality Construction",
+        "width": 512,
+        "height": 512
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://hqconstruction.id/assets/images/og/hqc-og-home.webp",
+        "width": 1200,
+        "height": 630
+      },
+      "description": "Perusahaan jasa konstruksi profesional berspesialisasi dalam pembangunan vila mewah, hotel, resort, pekerjaan struktur pembesian, instalasi utilitas MEP, dan finishing arsitektur berkualitas tinggi.",
+      "telephone": "+6282144267826",
+      "email": "info@hqconstruction.id",
+      "priceRange": "$$$",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "ID"
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+6282144267826",
+          "contactType": "customer service",
+          "areaServed": "ID",
+          "availableLanguage": [
+            "Indonesian",
+            "English"
+          ]
+        }
+      ],
+      "knowsAbout": [
+        "jasa konstruksi",
+        "kontraktor bangunan",
+        "kontraktor konstruksi",
+        "perusahaan konstruksi indonesia",
+        "jasa kontraktor profesional",
+        "kontraktor gedung",
+        "kontraktor sipil",
+        "kontraktor arsitektur",
+        "general contractor indonesia",
+        "jasa pemborong bangunan",
+        "kontraktor bangunan komersial",
+        "jasa rancang bangun",
+        "design and build contractor",
+        "kontraktor proyek terpercaya",
+        "manajemen konstruksi",
+        "jasa pembangunan vila",
+        "kontraktor vila",
+        "kontraktor vila mewah",
+        "pembangunan vila eksklusif",
+        "jasa bangun vila modern",
+        "konstruksi vila tropis",
+        "kontraktor private villa",
+        "pembangunan luxury villa",
+        "jasa renovasi vila",
+        "arsitektur vila kontemporer",
+        "pembangunan resort",
+        "kontraktor resort mewah",
+        "konstruksi eco resort",
+        "boutique resort contractor",
+        "villa development contractor",
+        "jasa pembangunan hotel",
+        "kontraktor hotel",
+        "konstruksi hotel berbintang",
+        "kontraktor hotel butik",
+        "pembangunan guest house",
+        "renovasi hotel",
+        "hospitality construction contractor",
+        "hotel building contractor",
+        "fit out hotel",
+        "konstruksi akomodasi pariwisata",
+        "proyek perhotelan",
+        "standard hotel bintang konstruksi",
+        "fasilitas perhotelan",
+        "interior hotel contractor",
+        "fasad hotel modern",
+        "pekerjaan struktur bangunan",
+        "struktur beton bertulang",
+        "pembesian pondasi",
+        "instalasi tulangan besi",
+        "pengecoran beton",
+        "pondasi bore pile",
+        "pondasi cakar ayam",
+        "footing foundation",
+        "balok dan kolom struktur",
+        "sloof gantung",
+        "retaining wall beton",
+        "dinding penahan tanah",
+        "uji kuat tekan beton",
+        "perhitungan beban struktur",
+        "rebar installation",
+        "instalasi utilitas bangunan",
+        "pekerjaan mep",
+        "mechanical electrical plumbing",
+        "instalasi pipa air bersih",
+        "jalur pipa air kotor",
+        "instalasi pipa sebelum cor",
+        "pemipaan ppr air panas",
+        "pemipaan pvc berkualitas",
+        "instalasi pipa pex",
+        "sistem sanitasi vila",
+        "pemasangan bio septic tank",
+        "instalasi stp sewage treatment",
+        "jalur kabel listrik conduit",
+        "panel listrik lvmdb",
+        "grounding sistem penangkal petir",
+        "pekerjaan dinding bata ringan",
+        "dinding hebel presisi",
+        "plesteran dan acian halus",
+        "perancah scaffolding",
+        "pekerjaan rangka fasad",
+        "fasad arsitektural lengkung",
+        "dinding ekspos terkurasi",
+        "secondary skin fasad",
+        "insulasi dinding bangunan",
+        "pemasangan partisi kedap suara",
+        "aplikasi waterproofing membrane",
+        "waterproofing polyurethane",
+        "waterproofing dak beton",
+        "pemasangan kusen aluminium",
+        "pintu kaca sliding panoramik",
+        "finishing arsitektural premium",
+        "lantai semen ekspos",
+        "pemasangan batu alam travertin",
+        "lantai terrazzo cor",
+        "finishing marmer mewah",
+        "decking kayu ulin kolam",
+        "konstruksi kolam renang infinity",
+        "pembangunan swimming pool vila",
+        "waterproofing kolam renang",
+        "sistem sirkulasi kolam overflow",
+        "lanskap tropis vila",
+        "hardscape dan softscape",
+        "lighting arsitektur eksterior",
+        "plafon gypsum drop ceiling",
+        "pengecatan dinding tahan cuaca",
+        "dokumentasi progres konstruksi",
+        "pengawasan berkala konstruksi",
+        "rab pembangunan vila",
+        "rencana anggaran biaya bangunan",
+        "gambar kerja arsitektur ded",
+        "detail engineering design",
+        "time schedule proyek kurva s",
+        "laporan mingguan proyek konstruksi",
+        "inspeksi mutu bahan bangunan",
+        "kualitas konstruksi terverifikasi",
+        "quality control konstruksi",
+        "spesifikasi teknis bangunan",
+        "konsultasi proyek konstruksi",
+        "hqc high quality construction",
+        "blueprint to built"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Layanan Konstruksi HQC",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Pembangunan Vila Eksklusif",
+              "description": "Konstruksi vila tropis modern dan private villa dengan standar mutu arsitektural tinggi."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Konstruksi Hotel & Resort",
+              "description": "Pembangunan akomodasi pariwisata, boutique hotel, dan hospitality resort."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Pekerjaan Struktur & Pondasi",
+              "description": "Pondasi bore pile, tulangan pembesian presisi, dan pengecoran struktur beton bertulang."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Instalasi MEP & Utilitas",
+              "description": "Sistem perpipaan PPR/PVC sebelum pengecoran, instalasi kelistrikan conduit, dan sanitasi."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Finishing Arsitektur & Fasad",
+              "description": "Finishing dinding lengkung, batu alam, travertin, terrazzo, dan kolam renang infinity."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://hqconstruction.id/#website",
+      "url": "https://hqconstruction.id/",
+      "name": "HQC High Quality Construction",
+      "alternateName": [
+        "HQC",
+        "High Quality Construction"
+      ],
+      "publisher": {
+        "@id": "https://hqconstruction.id/#organization"
+      },
+      "description": "Dokumentasi nyata perjalanan konstruksi vila dan hotel—dari detail pembesian struktur, instalasi utilitas, hingga wujud arsitektur jadi.",
+      "inLanguage": "id-ID",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://hqconstruction.id/blog?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://hqconstruction.id/blog#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Beranda",
+          "item": "https://hqconstruction.id/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Jurnal Konstruksi",
+          "item": "https://hqconstruction.id/blog"
+        }
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://hqconstruction.id/blog#webpage",
+      "url": "https://hqconstruction.id/blog",
+      "name": "Catatan Konstruksi HQC — Wawasan & Edukasi Proyek Vila Hotel",
+      "description": "Kumpulan artikel dan panduan teknis konstruksi: tahapan bangun vila, koordinasi pipa sebelum cor, serta panduan memilih kontraktor terpercaya.",
+      "isPartOf": {
+        "@id": "https://hqconstruction.id/#website"
+      },
+      "about": {
+        "@id": "https://hqconstruction.id/#organization"
+      },
+      "inLanguage": "id-ID",
+      "keywords": [
+        "jasa konstruksi",
+        "kontraktor bangunan",
+        "kontraktor konstruksi",
+        "perusahaan konstruksi indonesia",
+        "jasa kontraktor profesional",
+        "kontraktor gedung",
+        "kontraktor sipil",
+        "kontraktor arsitektur",
+        "general contractor indonesia",
+        "jasa pemborong bangunan",
+        "kontraktor bangunan komersial",
+        "jasa rancang bangun",
+        "design and build contractor",
+        "kontraktor proyek terpercaya",
+        "manajemen konstruksi",
+        "jasa pembangunan vila",
+        "kontraktor vila",
+        "kontraktor vila mewah",
+        "pembangunan vila eksklusif",
+        "jasa bangun vila modern",
+        "konstruksi vila tropis",
+        "kontraktor private villa",
+        "pembangunan luxury villa",
+        "jasa renovasi vila",
+        "arsitektur vila kontemporer",
+        "pembangunan resort",
+        "kontraktor resort mewah",
+        "konstruksi eco resort",
+        "boutique resort contractor",
+        "villa development contractor"
+      ],
+      "breadcrumb": {
+        "@id": "https://hqconstruction.id/blog#breadcrumb"
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-to-content">Lewati ke konten utama</a>
+
+  <!-- Navigation Bar -->
+  <header>
+    <nav class="hqc-navbar hqc-navbar-solid navbar navbar-expand-lg" aria-label="Navigasi Utama">
+      <div class="container">
+        <a class="hqc-brand" href="/" aria-label="HQC High Quality Construction - Beranda">
+          <img src="/assets/brand/hqc-emblem.webp" alt="Logo Emblem HQC" class="hqc-brand__emblem" width="46" height="52">
+          <div class="hqc-brand__text">
+            <span class="hqc-brand__name">HQC</span>
+            <span class="hqc-brand__tagline">High Quality Construction</span>
+          </div>
+        </a>
+
+        <button class="navbar-toggler border-0 p-2 text-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#hqcOffcanvasNav" aria-controls="hqcOffcanvasNav" aria-label="Buka menu navigasi">
+          <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end d-none d-lg-flex" id="navbarNav">
+          <ul class="navbar-nav align-items-center me-4">
+            <li class="nav-item"><a class="hqc-nav-link" href="/">Beranda</a></li>
+            <li class="nav-item"><a class="hqc-nav-link" href="/tentang">Tentang</a></li>
+            <li class="nav-item"><a class="hqc-nav-link" href="/produk">Produk</a></li>
+            <li class="nav-item"><a class="hqc-nav-link" href="/portofolio">Portofolio</a></li>
+            <li class="nav-item"><a class="hqc-nav-link active" href="/blog" aria-current="page">Blog</a></li>
+          </ul>
+          <a href="https://wa.me/6282144267826?text=Halo%20HQC%2C%20saya%20ingin%20konsultasi%20proyek." target="_blank" rel="noopener noreferrer" class="hqc-btn hqc-btn--primary">
+            <span>Konsultasi Proyek</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Offcanvas Drawer -->
+    <div class="offcanvas offcanvas-end hqc-offcanvas" tabindex="-1" id="hqcOffcanvasNav" aria-labelledby="hqcOffcanvasNavLabel">
+      <div class="offcanvas-header border-bottom border-secondary border-opacity-25 pb-3">
+        <a class="hqc-brand" href="/" id="hqcOffcanvasNavLabel">
+          <img src="/assets/brand/hqc-emblem.webp" alt="Logo HQC" class="hqc-brand__emblem" width="40" height="45">
+          <div class="hqc-brand__text">
+            <span class="hqc-brand__name">HQC</span>
+            <span class="hqc-brand__tagline">High Quality Construction</span>
+          </div>
+        </a>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Tutup menu"></button>
+      </div>
+      <div class="offcanvas-body d-flex flex-column justify-content-between">
+        <ul class="navbar-nav hqc-offcanvas-nav">
+          <li class="nav-item"><a class="hqc-nav-link" href="/">Beranda</a></li>
+          <li class="nav-item"><a class="hqc-nav-link" href="/tentang">Tentang HQC</a></li>
+          <li class="nav-item"><a class="hqc-nav-link" href="/produk">Solusi & Layanan</a></li>
+          <li class="nav-item"><a class="hqc-nav-link" href="/portofolio">Portofolio Progres</a></li>
+          <li class="nav-item"><a class="hqc-nav-link active" href="/blog">Jurnal Konstruksi</a></li>
+          <li class="nav-item"><a class="hqc-nav-link" href="/kontak">Kontak</a></li>
+        </ul>
+        <div class="hqc-offcanvas-contact">
+          <p class="text-white-50 small mb-2">Konsultasi Cepat via WhatsApp:</p>
+          <a href="https://wa.me/6282144267826?text=Halo%20HQC%2C%20saya%20ingin%20konsultasi%20proyek." target="_blank" rel="noopener noreferrer" class="hqc-btn hqc-btn--primary w-100 justify-content-center">
+            <span>+62 821-4426-7826</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <!-- Page Header -->
+    <section class="hqc-page-header">
+      <div class="container">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb small text-white-50 mb-3">
+            <li class="breadcrumb-item"><a href="/" class="text-white-50">Beranda</a></li>
+            <li class="breadcrumb-item active text-sand" aria-current="page">Blog & Jurnal</li>
+          </ol>
+        </nav>
+        <span class="hqc-eyebrow">CONSTRUCTION JOURNAL</span>
+        <h1 class="display-5 fw-bold text-white mb-3">Catatan Konstruksi HQC</h1>
+        <p class="lead">Wawasan lapangan, panduan teknis rekayasa struktur, dan kiat praktis perencanaan bagi pemilik vila dan pelaku industri perhotelan.</p>
+      </div>
+    </section>
+
+    <!-- Articles Grid Section -->
+    <section class="hqc-section hqc-section--paper">
+      <div class="container">
+        <div class="row g-4">
+          <!-- Article Card 1 -->
+          <div class="col-md-6 col-lg-4">
+            <article class="hqc-blog-card">
+              <img src="/assets/images/blog/blog-tahapan-vila.webp" alt="Tahapan Pembangunan Vila" class="hqc-blog-card__img" width="600" height="375" loading="lazy">
+              <div class="hqc-blog-card__body">
+                <div class="hqc-blog-card__meta">
+                  <span>Tahapan Konstruksi</span> • <span>29 Okt 2026</span> • <span>5 mnt baca</span>
+                </div>
+                <h2 class="hqc-blog-card__title">
+                  <a href="/blog/tahapan-pembangunan-vila">Tahapan Pembangunan Vila: Dari Struktur Hingga Finishing</a>
+                </h2>
+                <p class="hqc-blog-card__excerpt">Pelajari urutan kronologis pembangunan vila mewah, mulai dari pengujian daya dukung tanah, pengecoran pondasi beton bertulang, hingga pengerjaan kolam renang infinity.</p>
+                <a href="/blog/tahapan-pembangunan-vila" class="fw-bold small text-primary d-inline-flex align-items-center gap-1">
+                  Baca Artikel Lengkap <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Article Card 2 -->
+          <div class="col-md-6 col-lg-4">
+            <article class="hqc-blog-card">
+              <img src="/assets/images/blog/blog-instalasi-pipa.webp" alt="Koordinasi Pipa dan Pengecoran" class="hqc-blog-card__img" width="600" height="375" loading="lazy">
+              <div class="hqc-blog-card__body">
+                <div class="hqc-blog-card__meta">
+                  <span>Struktur & MEP</span> • <span>28 Okt 2026</span> • <span>4 mnt baca</span>
+                </div>
+                <h2 class="hqc-blog-card__title">
+                  <a href="/blog/instalasi-pipa-sebelum-pengecoran">Mengapa Jalur Pipa Harus Direncanakan Matang Sebelum Pengecoran?</a>
+                </h2>
+                <p class="hqc-blog-card__excerpt">Menanam pipa saluran air di antara pembesian membutuhkan perhitungan kemiringan dan perlindungan sleeve pipa agar beton tidak retak dan saluran tidak bocor.</p>
+                <a href="/blog/instalasi-pipa-sebelum-pengecoran" class="fw-bold small text-primary d-inline-flex align-items-center gap-1">
+                  Baca Artikel Lengkap <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <!-- Article Card 3 -->
+          <div class="col-md-6 col-lg-4">
+            <article class="hqc-blog-card">
+              <img src="/assets/images/blog/blog-kontraktor-vila.webp" alt="Memilih Kontraktor Vila Terpercaya" class="hqc-blog-card__img" width="600" height="375" loading="lazy">
+              <div class="hqc-blog-card__body">
+                <div class="hqc-blog-card__meta">
+                  <span>Tips Pemilik Proyek</span> • <span>27 Okt 2026</span> • <span>6 mnt baca</span>
+                </div>
+                <h2 class="hqc-blog-card__title">
+                  <a href="/blog/cara-memilih-kontraktor-vila">Hal yang Perlu Disiapkan Sebelum Berkonsultasi dengan Kontraktor</a>
+                </h2>
+                <p class="hqc-blog-card__excerpt">Panduan menyusun checklist dokumen teknis, menentukan skala prioritas anggaran, dan mengevaluasi rekanan kontraktor yang memiliki transparansi dokumentasi.</p>
+                <a href="/blog/cara-memilih-kontraktor-vila" class="fw-bold small text-primary d-inline-flex align-items-center gap-1">
+                  Baca Artikel Lengkap <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Consultation CTA -->
+    <section class="hqc-section hqc-section--navy text-center">
+      <div class="container py-3">
+        <h2 class="display-6 fw-bold text-white mb-3">Punya Pertanyaan Spesifik Terkait Rencana Anda?</h2>
+        <p class="text-white-50 mx-auto mb-4" style="max-width: 600px;">Tim teknis HQC siap berdiskusi dan memberikan masukan konstruktif untuk proyek Anda.</p>
+        <a href="https://wa.me/6282144267826?text=Halo%20HQC%2C%20saya%20membaca%20catatan%20konstruksi%20dan%20ingin%20konsultasi." target="_blank" rel="noopener noreferrer" class="hqc-btn hqc-btn--primary">
+          <span>Tanyakan Langsung via WhatsApp</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="hqc-footer">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <a class="hqc-brand mb-3" href="/">
+            <img src="/assets/brand/hqc-emblem.webp" alt="Logo HQC" class="hqc-brand__emblem" width="38" height="42">
+            <div class="hqc-brand__text">
+              <span class="hqc-brand__name">HQC</span>
+              <span class="hqc-brand__tagline">High Quality Construction</span>
+            </div>
+          </a>
+          <p class="text-white-50 small mt-3 pe-lg-4">Penyedia jasa konstruksi dengan rekam jejak dokumentasi lapangan yang faktual dan terpercaya.</p>
+          <div class="text-sand small fw-semibold mt-3">WhatsApp: +62 821-4426-7826</div>
+        </div>
+
+        <div class="col-6 col-md-3 col-lg-2">
+          <h4>Navigasi</h4>
+          <ul class="hqc-footer-links">
+            <li><a href="/">Beranda</a></li>
+            <li><a href="/tentang">Tentang HQC</a></li>
+            <li><a href="/produk">Produk & Layanan</a></li>
+            <li><a href="/portofolio">Portofolio Progres</a></li>
+            <li><a href="/blog">Jurnal Konstruksi</a></li>
+            <li><a href="/kontak">Kontak</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-3 col-lg-3">
+          <h4>Layanan</h4>
+          <ul class="hqc-footer-links">
+            <li><a href="/produk">Pembangunan Vila Eksklusif</a></li>
+            <li><a href="/produk">Konstruksi Hotel & Resort</a></li>
+            <li><a href="/produk">Pekerjaan Struktur & Pondasi</a></li>
+            <li><a href="/produk">Instalasi MEP & Utilitas</a></li>
+            <li><a href="/produk">Finishing Arsitektur</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <h4>Konsultasi Proyek</h4>
+          <p class="text-white-50 small mb-3">Hubungi tim kami untuk jadwal diskusi perencanaan proyek.</p>
+          <a href="https://wa.me/6282144267826?text=Halo%20HQC%2C%20saya%20ingin%20konsultasi%20proyek." target="_blank" rel="noopener noreferrer" class="hqc-btn hqc-btn--sand w-100 justify-content-center py-2 mb-3">
+            <span>Hubungi via WhatsApp</span>
+          </a>
+          <div class="small">
+            <a href="/kebijakan-privasi" class="text-white-50 text-decoration-underline">Kebijakan Privasi</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hqc-footer-bottom d-flex flex-wrap justify-content-between align-items-center gap-3">
+        <div>© 2026 HQC — High Quality Construction. Seluruh hak cipta dilindungi.</div>
+        <div>Concept: <span class="text-sand">Blueprint to Built</span></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Scroll Up/Down Controls -->
+  <div class="hqc-floating-controls" aria-label="Kontrol Navigasi Scroll">
+    <button type="button" class="hqc-float-btn" id="hqcScrollUp" aria-label="Gulir ke atas halaman" title="Naik ke atas">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
+    <button type="button" class="hqc-float-btn" id="hqcScrollDown" aria-label="Gulir ke bawah halaman" title="Turun ke bawah">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+  </div>
+
+  <!-- Floating WhatsApp CTA -->
+  <a href="https://wa.me/6282144267826?text=Halo%20HQC%2C%20saya%20ingin%20konsultasi%20proyek." target="_blank" rel="noopener noreferrer" class="hqc-float-wa" aria-label="Konsultasi via WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12.031 2c-5.508 0-9.986 4.471-9.986 9.974 0 1.761.459 3.479 1.332 4.996L2 22l5.191-1.361c1.47.801 3.125 1.226 4.84 1.226 5.508 0 9.986-4.472 9.986-9.975 0-5.503-4.478-9.974-9.986-9.974zm5.795 14.129c-.242.678-1.402 1.298-1.927 1.383-.497.08-1.144.113-3.69-.942-2.923-1.21-4.821-4.186-4.966-4.38-.145-.194-1.182-1.571-1.182-2.996 0-1.425.748-2.128 1.014-2.419.266-.291.58-.364.773-.364.193 0 .387.002.556.01.18.008.423-.068.662.508.242.58.823 2.01.895 2.155.072.146.121.315.024.509-.096.194-.145.315-.29.485-.145.17-.306.379-.437.509-.145.145-.297.303-.128.594.17.291.754 1.242 1.618 2.012 1.112.99 2.051 1.297 2.342 1.442.29.145.46.121.629-.073.17-.194.726-.847.92-1.138.193-.29.387-.242.653-.145.266.097 1.693.799 1.984.945.29.145.484.218.556.339.073.121.073.702-.169 1.38z"/>
+    </svg>
+    <span class="hqc-float-wa__text">Konsultasi WA</span>
+  </a>
+
+  <!-- Bootstrap Bundle JS & Main Controller -->
+  <script src="/assets/js/bootstrap.bundle.min.js"></script>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>
