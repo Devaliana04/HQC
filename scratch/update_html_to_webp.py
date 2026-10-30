@@ -39,8 +39,8 @@ for h in sorted(html_files):
 
     # 2. Open Graph & Twitter
     content = content.replace(
-        'https://hqconstruction.id/assets/images/og/hqc-og-home.jpg',
-        'https://hqconstruction.id/assets/images/og/hqc-og-home.webp'
+        'https://hqc-high-quality-construction.vercel.app/assets/images/og/hqc-og-home.jpg',
+        'https://hqc-high-quality-construction.vercel.app/assets/images/og/hqc-og-home.webp'
     )
     content = content.replace(
         '<meta property="og:image:type" content="image/jpeg">',
@@ -49,8 +49,8 @@ for h in sorted(html_files):
 
     # 3. Schema logo
     content = content.replace(
-        'https://hqconstruction.id/favicon.png',
-        'https://hqconstruction.id/favicon.webp'
+        'https://hqc-high-quality-construction.vercel.app/favicon.png',
+        'https://hqc-high-quality-construction.vercel.app/favicon.webp'
     )
 
     # 4. Any generic remaining /favicon.png

@@ -102,24 +102,86 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Circular items active ring styling
-  const circleButtons = document.querySelectorAll('.hqc-portfolio-circle');
-  circleButtons.forEach(circle => {
-    circle.addEventListener('click', () => {
-      circleButtons.forEach(c => c.classList.remove('active'));
-      circle.classList.add('active');
-    });
-  });
+  // 3. Portfolio Lightbox Controller
+  const lightboxModal = document.getElementById('hqcPortfolioModal');
+  if (lightboxModal) {
+    let currentItemIndex = 0;
+    const cards = Array.from(document.querySelectorAll('.hqc-portfolio-card'));
+    
+    const updateModalContent = (index) => {
+      if (index < 0) index = cards.length - 1;
+      if (index >= cards.length) index = 0;
+      currentItemIndex = index;
 
-  // URL Hash auto-open for portfolio details e.g. /portofolio/#detail-struktur-01
-  if (window.location.hash) {
-    const targetElement = document.querySelector(window.location.hash);
-    if (targetElement && targetElement.classList.contains('collapse')) {
-      const bsCollapse = new bootstrap.Collapse(targetElement, { toggle: true });
-      setTimeout(() => {
-        targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }, 350);
+      const card = cards[currentItemIndex];
+      if (!card) return;
+
+      const title = card.getAttribute('data-title') || '';
+      const phase = card.getAttribute('data-phase') || '';
+      const location = card.getAttribute('data-location') || 'Bali';
+      const imgSrc = card.getAttribute('data-img') || '';
+      const desc = card.getAttribute('data-desc') || '';
+      const specs = (card.getAttribute('data-specs') || '').split('|');
+
+      const modalImg = document.getElementById('lightboxImg');
+      const modalTitle = document.getElementById('lightboxTitle');
+      const modalPhase = document.getElementById('lightboxPhase');
+      const modalLocation = document.getElementById('lightboxLocation');
+      const modalDesc = document.getElementById('lightboxDesc');
+      const modalSpecs = document.getElementById('lightboxSpecs');
+      const modalCounter = document.getElementById('lightboxCounter');
+
+      if (modalImg) modalImg.src = imgSrc;
+      if (modalTitle) modalTitle.textContent = title;
+      if (modalPhase) modalPhase.textContent = phase;
+      if (modalLocation) modalLocation.textContent = location;
+      if (modalDesc) modalDesc.textContent = desc;
+      if (modalCounter) modalCounter.textContent = `${currentItemIndex + 1} dari ${cards.length}`;
+
+      if (modalSpecs) {
+        modalSpecs.innerHTML = '';
+        specs.forEach(s => {
+          if (s.trim()) {
+            const pill = document.createElement('span');
+            pill.className = 'hqc-portfolio-card__spec-pill me-1 mb-1';
+            pill.textContent = s.trim();
+            modalSpecs.appendChild(pill);
+          }
+        });
+      }
+    };
+
+    cards.forEach((card, idx) => {
+      card.addEventListener('click', (e) => {
+        updateModalContent(idx);
+        const bsModal = bootstrap.Modal.getOrCreateInstance(lightboxModal);
+        bsModal.show();
+      });
+    });
+
+    const prevBtn = document.getElementById('lightboxPrev');
+    const nextBtn = document.getElementById('lightboxNext');
+    if (prevBtn) {
+      prevBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        updateModalContent(currentItemIndex - 1);
+      });
     }
+    if (nextBtn) {
+      nextBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        updateModalContent(currentItemIndex + 1);
+      });
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (!lightboxModal.classList.contains('show')) return;
+      if (e.key === 'ArrowLeft') {
+        updateModalContent(currentItemIndex - 1);
+      } else if (e.key === 'ArrowRight') {
+        updateModalContent(currentItemIndex + 1);
+      }
+    });
   }
 
   // 4. Contact Form to WhatsApp Message Composer

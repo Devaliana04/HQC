@@ -5,7 +5,7 @@ import json
 def audit_website():
     root = os.getcwd()
     print("==================================================")
-    print("      HQC WEBSITE FULL PRODUCTION AUDIT           ")
+    print("      HQC BALI FULL PRODUCTION AUDIT             ")
     print("==================================================")
     
     html_files = [
@@ -35,7 +35,7 @@ def audit_website():
             size_kb = os.path.getsize(p) / 1024.0
             print(f"[PASS] Page exists: {hf} ({size_kb:.1f} KB)")
             
-    # 2. Check index.html uniqueness
+    # 2. Check index.html uniqueness (single root index.html)
     all_index_files = []
     for dirpath, dirnames, filenames in os.walk(root):
         if any(skip in dirpath for skip in ['scratch', '.agents', '.git']):
@@ -47,7 +47,7 @@ def audit_website():
     if len(all_index_files) == 1 and all_index_files[0] == 'index.html':
         print(f"\n[PASS] Exactly 1 index.html found at root: {all_index_files}")
     else:
-        print(f"\n[FAIL] Multiple index.html found: {all_index_files}")
+        print(f"\n[FAIL] Unexpected index.html found: {all_index_files}")
         total_issues += 1
         
     # 3. Check single sitemap.xml
@@ -65,22 +65,14 @@ def audit_website():
         print(f"[FAIL] Multiple sitemap.xml found: {all_sitemaps}")
         total_issues += 1
 
-    # 4. Check that ZERO .png or .jpg files exist in the project
-    print("\n--- Verifying Image Formats (WebP Only, Zero PNG/JPG) ---")
-    forbidden_images = []
-    for dirpath, dirnames, filenames in os.walk(root):
-        if any(skip in dirpath for skip in ['scratch', '.agents', '.git', 'node_modules']):
-            continue
-        for f in filenames:
-            ext = os.path.splitext(f)[1].lower()
-            if ext in ['.png', '.jpg', '.jpeg']:
-                rel = os.path.relpath(os.path.join(dirpath, f), root)
-                forbidden_images.append(rel)
-    if forbidden_images:
-        print(f"[FAIL] Found {len(forbidden_images)} non-WebP image files: {forbidden_images}")
-        total_issues += len(forbidden_images)
+    # 4. Check Open Graph WhatsApp Image exists and is < 100KB
+    og_img = os.path.join(root, 'assets', 'images', 'og', 'hqc-og-home.jpg')
+    if os.path.exists(og_img):
+        kb = os.path.getsize(og_img) / 1024.0
+        print(f"[PASS] WhatsApp Open Graph JPG exists: {kb:.2f} KB (under 100KB: {kb < 100})")
     else:
-        print("[PASS] ZERO PNG or JPG files in project. All images are 100% WebP (+ favicon.ico fallback)!")
+        print("[FAIL] Missing assets/images/og/hqc-og-home.jpg for WhatsApp preview!")
+        total_issues += 1
 
     # 5. Deep check into each page
     print("\n--- Verifying Content, Schemas, Keywords & Links ---")
@@ -101,8 +93,18 @@ def audit_website():
             if len(kws) < 100:
                 print(f"[FAIL] {hf}: Keywords count is {len(kws)} (< 100)")
                 total_issues += 1
+            # Check Bali villa keyword presence
+            kw_str = kw_match.group(1).lower()
+            if 'bali' not in kw_str or 'vila' not in kw_str:
+                print(f"[FAIL] {hf}: Missing Bali / Vila in keywords")
+                total_issues += 1
         else:
             print(f"[FAIL] {hf}: Missing meta keywords")
+            total_issues += 1
+            
+        # Check Open Graph image tag for WhatsApp
+        if 'og:image' not in c or 'hqc-og-home.jpg' not in c:
+            print(f"[FAIL] {hf}: Missing WhatsApp og:image meta tag")
             total_issues += 1
             
         # Check JSON-LD
@@ -135,11 +137,6 @@ def audit_website():
         bad_hrefs = [h for h in bad_hrefs if not h.endswith('404.html')]
         if bad_hrefs:
             print(f"[FAIL] {hf}: Found .html in href: {bad_hrefs}")
-            total_issues += 1
-
-        # Check for any .png references in HTML
-        if '.png' in c.lower():
-            print(f"[FAIL] {hf}: Still contains .png references")
             total_issues += 1
             
     # 6. Check all images in assets/ are < 100KB

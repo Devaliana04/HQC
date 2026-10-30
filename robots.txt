@@ -7,6 +7,7 @@ Allow: /apple-touch-icon.webp
 Allow: /site.webmanifest
 Allow: /assets/brand/
 Allow: /assets/images/
+Allow: /hqc-og-home.jpg
 
 User-agent: Googlebot
 Allow: /
@@ -19,5 +20,6 @@ Allow: /favicon-512x512.webp
 Allow: /apple-touch-icon.webp
 Allow: /assets/brand/
 Allow: /assets/images/
+Allow: /hqc-og-home.jpg
 
-Sitemap: https://hqconstruction.id/sitemap.xml
+Sitemap: https://hqc-high-quality-construction.vercel.app/sitemap.xml
